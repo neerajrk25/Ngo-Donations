@@ -1,0 +1,92 @@
+.row {
+    margin-top: 10px;
+}
+.ro {
+    padding-left: 15px;
+}
+.btn1 {
+    -moz-user-select: none;
+    background-image: none;
+    border: 1px solid;
+    border-color: #ccc;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857;
+    margin-bottom: 0;
+    padding: 8px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.main {
+    border: 2px solid #fff;
+    padding: 14px;
+    position: relative;
+    background-color: #80ccff;
+    margin-top: 12px;
+    border-radius: 10px;
+    /*box-shadow: 13px 15px 8px 6px #D5D1D1;*/
+    box-shadow: 15px 13px 13px 0px rgba(0,0,0,0.2);
+}
+.head {
+    color: grey;
+    padding-left: 45px;
+}
+input[type="text"] {
+    padding: 8.2px;
+    height: auto;
+}
+.col-md-2 {
+    padding: 8.2px;
+    padding-left: 35px;
+}
+body {
+    /*background-color: aqua;*/
+}
+.radio-inline {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+}
+.rad-pad {
+    padding-left: 30px;
+}
+.full button span {
+    background-color: limegreen;
+    border-radius: 32px;
+    color: black;
+}
+.partially button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+}
+.errorClass {
+    border: medium solid red !important;
+}
+.cur {
+    cursor: not-allowed!important;
+}
+.control-lable {
+    padding: 12px !important;
+    border-radius: 4px;
+}
+.bg {
+    background: #ffc0c0 none repeat scroll 0 0;
+    border: 2px solid;
+    border-radius: 14px;
+    padding: 9px 80px;
+}
+.container {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+    -webkit-box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 1px rgba(0,0,0,0.2);
+}

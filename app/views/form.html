@@ -1,0 +1,131 @@
+<form class="main" name="myForm" ng-controller="userController" ng-init="initialize()" ng-submit="hello(myForm.$valid)" novalidate>
+    <div class="head row">
+        <h3>User Information</h3>
+    </div>
+    <span class="row text-center center-block has-error" ng-show="err">
+        <label class="control-label bg">Fill all <b>*</b> marked fields!</label>
+    </span>
+
+    <div class="row">
+        <div class="col-md-2">
+            <label>First Name *</label>
+        </div>
+        <div class="col-md-4" ng-class="fnameErr" title="Only Letters!!Minimum 4!!" data-toggle="tooltip">
+            <div ng-class="{'has-error': myForm.fname.$invalid && !myForm.fname.$pristine, 'has-success': !myForm.fname.$invalid }">
+                <input type="text" class="form-control" name="fname" id="fname" ng-change="noFname()" ng-model="user.fname" placeholder="Tera Naam kya hai??" ng-pattern="/^[a-zA-Z]{4,30}$/" required>
+                <span class="text-warning" ng-show="!myForm.fname.$valid && !myForm.fname.$pristine">
+<label class="text-center small">Enter Valid First Name</label></span>
+                <span class="pull-right text-warning" ng-show="myForm.fname.$error.required && !myForm.fname.$pristine"><label class="text-center  small">Required!!</label></span>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <label>Last Name *</label>
+        </div>
+        <div class="col-md-4" ng-class="lnameErr" title="Only Letters!!Minimum 4!!" data-toggle="tooltip">
+            <div ng-class="{'has-error': myForm.lname.$invalid && !myForm.lname.$pristine, 'has-success': !myForm.lname.$invalid }">
+                <input type="text" class="form-control" name="lname" ng-change="noLname()" ng-model="user.lname" placeholder="Ab surname bhi bata de!!" ng-pattern="/^[a-zA-Z]{4,30}$/" required>
+                <span class="text-warning" ng-show="!myForm.lname.$valid && !myForm.lname.$pristine">
+<label class="text-center small">Enter Valid Last Name</label></span>
+                <span class="pull-right text-warning" ng-show="myForm.lname.$error.required && !myForm.lname.$pristine"><label class="text-center  small">Required!!</label></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Date of Birth *</label>
+        </div>
+        <div class="col-md-4" ng-class="dtErr" title="Click to select a date" data-toggle="tooltip">
+            <div ng-class="ageErr">
+                <p class="input-group">
+                    <input type="text" class="form-control" id="datepicker" name="dt" datepicker-popup="dd-MM-yyyy" ng-change="dteChange()" ng-model="user.dt" is-open="opened" min-date="1986-06-22" max-date="'2016-06-22'" datepicker-options="dateOptions" ng-click="open($event)" readonly/>
+                    <span class="input-group-btn">
+        <button type="button" class="btn1 btn-default" ng-click="open($event)" ng-model="date"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+                </p>
+                <span class="pull-right text-warning" ng-show="myForm.dt.$error.required && !myForm.dt.$pristine"><label class="text-center  small">Required!!</label></span>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Gender *</label>
+        </div>
+        <div class="col-md-4" title="striling ho ya pulling">
+            <label class="radio-inline">
+                <input type="radio" ng-model="user.gen" ng-click="ageVerification()" value="male"> Male
+            </label>
+            <label class="radio-inline rad-pad">
+                <input type="radio" ng-model="user.gen" ng-click="ageVerification()" value="female"> Female
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Email Id *</label>
+        </div>
+        <div class="col-md-4" ng-class="{'has-error': myForm.email.$invalid && !myForm.email.$pristine, 'has-success': !myForm.email.$invalid }" title="me@example.com" data-toggle="tooltip">
+            <div ng-class="emailErr">
+                <input type="email" class="form-control" name="email" ng-change="noEmail()" ng-model="user.email" placeholder="Email Id" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
+                <span class="text-warning" ng-show="!myForm.email.$valid && !myForm.email.$pristine">
+<label class="text-center small">Enter Valid Email ID</label>
+</span>
+                <span class="pull-right text-warning" ng-show="myForm.email.$error.required && !myForm.email.$pristine">
+<label class="text-center small">Required!!</label>
+</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Address *</label>
+        </div>
+        <div class="col-md-4" ng-class="birthErr" title="Whole Address Please" data-toggle="tooltip">
+            <div ng-class="{'has-error': myForm.birth.$invalid && !myForm.birth.$pristine, 'has-success': !myForm.birth.$invalid }">
+                <textarea class="form-control" name="birth" ng-change="noBirth()" ng-model="user.birth" placeholder="Janma Sthan" ng-pattern="/^[a-zA-Z0-9]{4,30}$/" required></textarea>
+                <span class="text-warning" ng-show="myForm.birth.$invalid && !myForm.birth.$pristine"><label class="text-center small">Enter Valid Birth Place</label></span>
+                <span class="pull-right text-warning" ng-show="myForm.birth.$error.required && !myForm.birth.$pristine"><label class="text-center  small">Required!!</label></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Amount *</label>
+        </div>
+        <div class="col-md-4" ng-class="{'has-error': myForm.amount.$invalid && !myForm.amount.$pristine, 'has-success': !myForm.amount.$invalid }" title="min &#8377;1000" data-toggle="tooltip">
+            <div class="form-group">
+                <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+                <div class="input-group">
+                  <div class="input-group-addon">&#8377</div>
+                  <input type="amount" class="form-control" name="amount" ng-change="noEmail()" ng-model="user.amount" placeholder="Enter Amount For Donation" ng-pattern="/^[0-9]{4,10}$/" required>
+                  <div class="input-group-addon">.00</div>
+                </div>
+            </div>
+            <span class="text-warning" ng-show="!myForm.amount.$valid && !myForm.amount.$pristine">
+                <label class="text-center small">Enter Valid Amount</label>
+            </span>
+            <span class="pull-right text-warning" ng-show="myForm.amount.$error.required && !myForm.amount.$pristine">
+                <label class="text-center small">Required!!</label>
+            </span>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Payment via *</label>
+        </div>
+        <div class="col-md-4" title="striling ho ya pulling">
+            <label class="radio-inline">
+                <input type="radio" ng-model="user.medium" value="cash"> Cash
+            </label>
+            <label class="radio-inline rad-pad">
+                <input type="radio" ng-model="user.medium" value="online"> Online Banking
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-offset-1 col-md-1">
+            <button type="submit" value="Next" id="next" class="btn btn-primary" ng-disabled="ageError">Submit</button>
+        </div>
+    </div>
+</form>
