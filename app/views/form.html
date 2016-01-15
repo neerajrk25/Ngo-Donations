@@ -10,7 +10,7 @@
         <div class="col-md-2">
             <label>First Name *</label>
         </div>
-        <div class="col-md-4" ng-class="fnameErr" title="Only Letters!!Minimum 4!!" data-toggle="tooltip">
+        <div class="col-md-4" ng-class="fnameErr" tooltip-placement="top" tooltip="Only Letters!!Minimum 4!!">
             <div ng-class="{'has-error': myForm.fname.$invalid && !myForm.fname.$pristine, 'has-success': !myForm.fname.$invalid }">
                 <input type="text" class="form-control" name="fname" id="fname" ng-change="noFname()" ng-model="user.fname" placeholder="Tera Naam kya hai??" ng-pattern="/^[a-zA-Z]{4,30}$/" required>
                 <span class="text-warning" ng-show="!myForm.fname.$valid && !myForm.fname.$pristine">
@@ -21,7 +21,7 @@
         <div class="col-md-2">
             <label>Last Name *</label>
         </div>
-        <div class="col-md-4" ng-class="lnameErr" title="Only Letters!!Minimum 4!!" data-toggle="tooltip">
+        <div class="col-md-4" ng-class="lnameErr" tooltip-placement="top" tooltip="Only Letters!!Minimum 4!!">
             <div ng-class="{'has-error': myForm.lname.$invalid && !myForm.lname.$pristine, 'has-success': !myForm.lname.$invalid }">
                 <input type="text" class="form-control" name="lname" ng-change="noLname()" ng-model="user.lname" placeholder="Ab surname bhi bata de!!" ng-pattern="/^[a-zA-Z]{4,30}$/" required>
                 <span class="text-warning" ng-show="!myForm.lname.$valid && !myForm.lname.$pristine">
@@ -34,7 +34,7 @@
         <div class="col-md-2">
             <label>Date of Birth *</label>
         </div>
-        <div class="col-md-4" ng-class="dtErr" title="Click to select a date" data-toggle="tooltip">
+        <div class="col-md-4" ng-class="dtErr" tooltip-placement="right" tooltip="Click to select a date">
             <div ng-class="ageErr">
                 <p class="input-group">
                     <input type="text" class="form-control" id="datepicker" name="dt" datepicker-popup="dd-MM-yyyy" ng-change="dteChange()" ng-model="user.dt" is-open="opened" min-date="1986-06-22" max-date="'2016-06-22'" datepicker-options="dateOptions" ng-click="open($event)" readonly/>
@@ -51,7 +51,7 @@
         <div class="col-md-2">
             <label>Gender *</label>
         </div>
-        <div class="col-md-4" title="striling ho ya pulling">
+        <div class="col-md-4" tooltip-placement="right" tooltip="striling ho ya pulling">
             <label class="radio-inline">
                 <input type="radio" ng-model="user.gen" ng-click="ageVerification()" value="male"> Male
             </label>
@@ -64,7 +64,7 @@
         <div class="col-md-2">
             <label>Email Id *</label>
         </div>
-        <div class="col-md-4" ng-class="{'has-error': myForm.email.$invalid && !myForm.email.$pristine, 'has-success': !myForm.email.$invalid }" title="me@example.com" data-toggle="tooltip">
+        <div class="col-md-4" ng-class="{'has-error': myForm.email.$invalid && !myForm.email.$pristine, 'has-success': !myForm.email.$invalid }" tooltip-placement="right" tooltip="me@example.com">
             <div ng-class="emailErr">
                 <input type="email" class="form-control" name="email" ng-change="noEmail()" ng-model="user.email" placeholder="Email Id" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/" required>
                 <span class="text-warning" ng-show="!myForm.email.$valid && !myForm.email.$pristine">
@@ -80,7 +80,7 @@
         <div class="col-md-2">
             <label>Address *</label>
         </div>
-        <div class="col-md-4" ng-class="birthErr" title="Whole Address Please" data-toggle="tooltip">
+        <div class="col-md-4" ng-class="birthErr" tooltip-placement="right" tooltip="Whole Address Please">
             <div ng-class="{'has-error': myForm.birth.$invalid && !myForm.birth.$pristine, 'has-success': !myForm.birth.$invalid }">
                 <textarea class="form-control" name="birth" ng-change="noBirth()" ng-model="user.birth" placeholder="Janma Sthan" ng-pattern="/^[a-zA-Z0-9]{4,30}$/" required></textarea>
                 <span class="text-warning" ng-show="myForm.birth.$invalid && !myForm.birth.$pristine"><label class="text-center small">Enter Valid Birth Place</label></span>
@@ -92,7 +92,7 @@
         <div class="col-md-2">
             <label>Amount *</label>
         </div>
-        <div class="col-md-4" ng-class="{'has-error': myForm.amount.$invalid && !myForm.amount.$pristine, 'has-success': !myForm.amount.$invalid }" title="min &#8377;1000" data-toggle="tooltip">
+        <div class="col-md-4" ng-class="{'has-error': myForm.amount.$invalid && !myForm.amount.$pristine, 'has-success': !myForm.amount.$invalid }" tooltip-placement="right" tooltip="min &#8377;1000">
             <div class="form-group">
                 <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
                 <div class="input-group">
@@ -114,7 +114,7 @@
         <div class="col-md-2">
             <label>Payment via *</label>
         </div>
-        <div class="col-md-4" title="striling ho ya pulling">
+        <div class="col-md-4">
             <label class="radio-inline">
                 <input type="radio" ng-model="user.medium" value="cash"> Cash
             </label>

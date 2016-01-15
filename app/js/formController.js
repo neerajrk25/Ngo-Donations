@@ -207,7 +207,3 @@ angular.module("main.controller", [])
         startingDay: 1
     };
 });
-
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})
