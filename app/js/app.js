@@ -1,9 +1,9 @@
-angular.module('main',['ngRoute', 'ui.bootstrap'])
+angular.module("main",['main.controller','ngRoute', 'ui.bootstrap'])
 .config(function($routeProvider){
     $routeProvider
     .when('/form',{
-        templateUrl: 'views/form.html',
-        controller: 'userController'
+        controller: 'userController',
+        templateUrl: 'views/form.html'
     })
     .otherwise({
         redirectTo: '/form'
